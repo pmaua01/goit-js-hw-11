@@ -7,7 +7,7 @@ import NewApi from './api';
 import simpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const DEBOUNCE_DELAY = 300;
+
 const refs = {
   form: document.querySelector('.search-form'),
   gallery: document.querySelector('.gallery'),
