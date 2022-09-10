@@ -23,3 +23,17 @@ function renderCountryOne(country) {
 }
 
 export { renderCountryMore, renderCountryOne };
+
+
+
+
+
+const refs = {
+  form: document.querySelector('.search-form'),
+};
+
+refs.form.addEventListener('submit', onSubmit);
+
+function onSubmit(e) {
+  e.preventDefault();
+  console.log(e.currentTarget.elements.searchQuery.value);
