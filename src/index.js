@@ -44,6 +44,7 @@ async function findPictureRenderUi() {
     const answerFromApi = await newApi.findPicture();
 
     if (newApi.query === '') {
+      refs.loadBtn.classList.add('is-hidden');
       return Notiflix.Notify.failure(`Please enter a query`);
     }
     if (newApi.length === 0) {
