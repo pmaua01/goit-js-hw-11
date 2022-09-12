@@ -7,7 +7,6 @@ import NewApi from './api';
 import simpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-
 const refs = {
   form: document.querySelector('.search-form'),
   gallery: document.querySelector('.gallery'),
@@ -42,12 +41,13 @@ function onLoadMore() {
 async function findPictureRenderUi() {
   try {
     const answerFromApi = await newApi.findPicture();
+    console.log(newApi.length);
 
     if (newApi.query === '') {
       refs.loadBtn.classList.add('is-hidden');
       return Notiflix.Notify.failure(`Please enter a query`);
     }
-    if (newApi.length === 0) {
+    if (newApi.length < 40) {
       refs.loadBtn.classList.add('is-hidden');
     } else {
       refs.loadBtn.classList.remove('is-hidden');
@@ -65,6 +65,9 @@ async function findPictureRenderUi() {
 async function loadMoreRenderUi() {
   try {
     const loadMoreAnswerFromApi = await newApi.findPicture();
+    // if (newApi.length < 40) {
+    //   refs.loadBtn.classList.add('is-hidden');
+    // }
     if (newApi.length === 0) {
       refs.loadBtn.classList.add('is-hidden');
       Notiflix.Notify.failure(

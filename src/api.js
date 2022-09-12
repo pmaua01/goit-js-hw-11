@@ -7,6 +7,7 @@ export default class NewApi {
     this.length = '';
     this.notifi = '';
     this.totalHits = 0;
+    this.hits = '';
   }
 
   async findPicture() {
